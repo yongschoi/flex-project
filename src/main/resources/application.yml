@@ -19,7 +19,12 @@ spring:
       probability: 1
   zipkin:
     baseUrl: http://localhost:9411/
-          
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: flex
+                
 eureka:
   instance:
     preferIpAddress: true
@@ -30,12 +35,7 @@ eureka:
     enabled: true
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka/  
-      
-mongo:
-  host: localhost
-  port: 27017
-  dbname: flex  
-  
+ 
 ---
 
 server:
@@ -55,6 +55,11 @@ spring:
       probability: 1
   zipkin:
     baseUrl: http://zipkin-server:9411/
+  data:
+    mongodb:
+      host: flex-mongo-db
+      port: 27017
+      database: flex
                          
 eureka:
   instance:
@@ -66,8 +71,3 @@ eureka:
     enabled: true
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka/
-          
-mongo:
-  host: flex-mongo-db
-  port: 27017
-  dbname: flex      
